@@ -3,23 +3,23 @@
 # ----------------------
 FROM node:22-slim AS builder
 
-# Tạo thư mục làm việc
 WORKDIR /app
 
-# Copy chỉ package.json và lockfile để cache dependencies
-COPY package.json pnpm-lock.yaml* ./
+# Copy package.json + package-lock.json để cache dependencies
+COPY package.json package-lock.json ./
 
-# Cài pnpm
-RUN npm install -g pnpm
+# Cài build tools cần thiết cho các package native
+RUN apt-get update && apt-get install -y python3 make g++ \
+    && rm -rf /var/lib/apt/lists/*
 
-# Cài dependencies, giảm concurrency để tránh OOM
-RUN pnpm install --frozen-lockfile --network-concurrency 1
+# Cài dependencies bằng npm
+RUN npm ci
 
 # Copy toàn bộ source code
 COPY . .
 
-# Build project Next.js
-RUN pnpm build
+# Build Next.js
+RUN npm run build
 
 # ----------------------
 # Stage 2: Production stage
@@ -39,4 +39,4 @@ COPY --from=builder /app/package.json ./package.json
 EXPOSE 3000
 
 # Chạy Next.js production server
-CMD ["pnpm", "start"]
+CMD ["npm", "start"]
