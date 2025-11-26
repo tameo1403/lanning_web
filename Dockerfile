@@ -1,21 +1,21 @@
-# Dockerfile
+# Chọn Node.js slim để nhẹ
 FROM node:22-slim
 
 # Thư mục làm việc trong container
 WORKDIR /app
 
-# Copy package và cài deps
+# Copy file package và install
 COPY package*.json ./
 RUN npm install --production
 
-# Copy toàn bộ source
+# Copy toàn bộ source code
 COPY . .
 
-# Build Next.js
+# Build app
 RUN npm run build
 
-# Expose port mà Next.js chạy
+# Expose port app
 EXPOSE 3000
 
-# CMD chạy app
+# Command chạy app
 CMD ["npm", "start"]
