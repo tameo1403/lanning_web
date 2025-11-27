@@ -5,6 +5,8 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
+import { message } from "antd";
+import axios from "axios";
 
 export function CTA() {
   const [formData, setFormData] = useState({
@@ -14,13 +16,32 @@ export function CTA() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    alert(
-      "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất."
-    );
-    setFormData({ name: "", email: "", phone: "", message: "" });
+  const handleSubmit = async (e: React.FormEvent) => {
+    try {
+      e.preventDefault();
+      // Handle form submission
+      console.log("Form data:", formData);
+      const result = await axios.post(`${process.env.NEXT_PUBLIC_API}`, {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      });
+
+      console.log(result);
+      if (result.status === 200) {
+        message.success(
+          "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất."
+        );
+      } else {
+        message.error("Đã có lỗi sảy ra!");
+      }
+
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.warn(error);
+      return error;
+    }
   };
 
   return (
