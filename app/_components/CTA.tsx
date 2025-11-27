@@ -20,22 +20,16 @@ export function CTA() {
     try {
       e.preventDefault();
       // Handle form submission
-      console.log("Form data:", formData);
-      const result = await axios.post(`${process.env.NEXT_PUBLIC_API}`, {
+      await axios.post(`${process.env.NEXT_PUBLIC_API}`, {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         message: formData.message,
       });
 
-      console.log(result);
-      if (result.status === 200) {
-        message.success(
-          "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất."
-        );
-      } else {
-        message.error("Đã có lỗi sảy ra!");
-      }
+      message.success(
+        "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất."
+      );
 
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
