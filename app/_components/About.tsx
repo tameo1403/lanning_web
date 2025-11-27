@@ -5,7 +5,7 @@ export function About() {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="mb-4 text-blue-900">Về Chúng Tôi</h2>
+          <h2 className="mb-4 font-semibold text-blue-900">Về Chúng Tôi</h2>
           <p className="text-gray-600">
             Được thành lập năm 2020, chúng tôi là công ty công nghệ hàng đầu tại
             Việt Nam, chuyên cung cấp các giải pháp chuyển đổi số toàn diện cho

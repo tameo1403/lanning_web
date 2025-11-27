@@ -52,7 +52,7 @@ export function Features() {
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full mb-4 text-sm">
+          <div className="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full mb-4 text-sm font-semibold">
             Công Nghệ
           </div>
           <h2 className="mb-4 text-blue-900">Công Nghệ & Tính Năng Nổi Bật</h2>

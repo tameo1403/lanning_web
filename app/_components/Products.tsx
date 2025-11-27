@@ -60,7 +60,7 @@ export function Products() {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full mb-4 text-sm">
+          <div className="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full mb-4 text-sm font-semibold">
             Sản Phẩm & Dịch Vụ
           </div>
           <h2 className="mb-4 text-blue-900">Giải Pháp Của Chúng Tôi</h2>
@@ -123,7 +123,9 @@ export function Products() {
         {/* Services */}
         <div className="mt-20 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-12">
           <div className="max-w-4xl mx-auto">
-            <h3 className="mb-8 text-center text-blue-900">Dịch Vụ Khác</h3>
+            <h3 className="mb-8 text-center text-blue-900 font-semibold">
+              Dịch Vụ Khác
+            </h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div
                 data-aos="flip-left"

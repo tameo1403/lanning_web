@@ -96,7 +96,7 @@ export function CTA() {
                 </div> */}
               </div>
 
-              <div className="mt-8 pt-8 border-t border-gray-200">
+              {/* <div className="mt-8 pt-8 border-t border-gray-200">
                 <div className="text-sm text-gray-600 mb-3">
                   Theo dõi chúng tôi
                 </div>
@@ -112,7 +112,7 @@ export function CTA() {
                     )
                   )}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
