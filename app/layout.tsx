@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AosProvider } from "./providers";
+import HeaderPage from "./_components/Header";
+import { Footer } from "./_components/Footer";
+import { Hero } from "./_components/Hero";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +61,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <HeaderPage />
+        <Hero />
         <AosProvider>
           {children}
 
@@ -80,6 +85,7 @@ export default function RootLayout({
             }}
           />
         </AosProvider>
+        <Footer />
       </body>
     </html>
   );

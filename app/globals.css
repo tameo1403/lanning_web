@@ -24,3 +24,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.ant-menu-item a,
+.ant-menu-item a:active,
+.ant-menu-item a:hover {
+  text-decoration: none !important;
+}

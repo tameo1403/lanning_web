@@ -1,12 +1,11 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 
 export function Hero() {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const router = useRouter();
 
   return (
     <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white overflow-hidden">
@@ -54,7 +53,9 @@ export function Hero() {
               <Button
                 size="lg"
                 className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg"
-                onClick={scrollToContact}
+                onClick={() => {
+                  router.push("/contact");
+                }}
               >
                 Liên Hệ Ngay
                 <ArrowRight className="ml-2 h-5 w-5" />
